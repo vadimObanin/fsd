@@ -6,7 +6,7 @@ import {BuildPats} from "./config/build/types/config";
 const paths: BuildPats = {
   entry: path.resolve(__dirname, 'src', 'index.ts'),
   html: path.resolve(__dirname, 'public', 'index.html'),
-  output: path.resolve(__dirname, 'dist'),
+  output: path.resolve(__dirname, 'build'),
 }
 
 const mode = 'development';
