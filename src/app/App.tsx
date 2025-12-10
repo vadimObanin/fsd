@@ -1,10 +1,8 @@
 import './styles/index.scss';
 import {Link, Route, Routes} from "react-router-dom";
-import {Suspense} from "react";
 import {useTheme} from "app/providers/ThemeProvider";
 import {classNames} from "shared/lib/classNames/classNames";
-import {AboutPage} from "pages/AboutPage";
-import {MainPage} from "pages/MainPage";
+import {AppRouter} from "app/providers/router";
 
 
 export const App = () => {
@@ -15,12 +13,7 @@ export const App = () => {
       <button onClick={toggleTheme}>{theme}</button>
       <Link to={'/'}>Main</Link>
       <Link to={'/about'}>About</Link>
-      <Suspense fallback={'Loading...'}>
-        <Routes>
-          <Route path={'/about'} element={<AboutPage/>}/>
-          <Route path={'/'} element={<MainPage/>}/>
-        </Routes>
-      </Suspense>
+      <AppRouter/>
       <h1>App Component</h1>
     </div>
   )
