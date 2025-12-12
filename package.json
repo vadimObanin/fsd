@@ -6,7 +6,9 @@
   "scripts": {
     "start": "webpack serve",
     "build:prod": "webpack --env mode=production",
-    "build:dev": "webpack --env mode=development"
+    "build:dev": "webpack --env mode=development",
+    "lint:scss": "npx stylelint \"**/*.scss\"",
+    "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +28,9 @@
     "sass": "^1.94.2",
     "sass-loader": "^16.0.6",
     "style-loader": "^4.0.0",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^39.0.1",
+    "stylelint-config-standard-scss": "^16.0.0",
     "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
