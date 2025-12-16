@@ -6,12 +6,16 @@ import {LangSwitcher} from "shared/ui/LangSwitcher/ui/LangSwitcher";
 import {useTranslation} from "react-i18next";
 import {Button} from "shared/ui/Button";
 import {ButtonSize, ThemeButton} from "shared/ui/Button/ui/Button";
+import {AppLink, AppLinkTheme} from "shared/ui/AppLink/AppLink";
+import {RouterPath} from "shared/config/routeConfig/routeConfig";
+import AboutIcon from "shared/assets/icons/about-20-20.svg";
+import MainIcon from "shared/assets/icons/main-20-20.svg";
 
 interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar: FC<SidebarProps> = (props) => {
+export const Sidebar = (props: SidebarProps) => {
   const [collapsed, setCollapsed] = React.useState(false);
   const {t} = useTranslation();
   const onToggle = () => setCollapsed(prev => !prev)
@@ -30,6 +34,16 @@ export const Sidebar: FC<SidebarProps> = (props) => {
       >
         {collapsed ? '>' : '<'}
       </Button>
+      <div className={cls.items}>
+        <AppLink className={cls.item} theme={AppLinkTheme.SECONDARY} to={RouterPath.main}>
+          <MainIcon className={cls.icon}/>
+          <span className={cls.link}>Main</span>
+        </AppLink>
+        <AppLink className={cls.item} theme={AppLinkTheme.SECONDARY} to={RouterPath.about}>
+          <AboutIcon className={cls.icon}/>
+          <span className={cls.link}>About</span>
+        </AppLink>
+      </div>
       <div className={cls.switchers}>
         <ThemeSwitcher/>
         <LangSwitcher short={collapsed} className={cls.lang}/>
